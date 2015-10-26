@@ -8,14 +8,16 @@
 
 		html, body
 		{
-			min-height: 100%;
+			width: 100%;
+			height: 100%;
 			margin: 0;
 			padding: 0;
+			overflow: none;
 		}
 
 		body
 		{
-			background-image: url(kaart.png);
+			background-image: url(nogbeterekaart.png);
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
 			position: relative;
@@ -51,7 +53,6 @@
 
 			player.addEventListener('dragend', function (e)
 			{
-				console.log(e);
 				e.target.style.left = e.x - offsetX + "px";
 				e.target.style.top = e.y - offsetY + "px";
 			});
