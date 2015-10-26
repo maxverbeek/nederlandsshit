@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Imaginaire reisverhalen spel</title>
+
+	<style type="text/css">
+
+		html, body
+		{
+			min-height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		body
+		{
+			background-image: url(kaart.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+
+		img[class^=player]
+		{
+			position: absolute;
+		}
+
+	</style>
+</head>
+<body>
+
+	<img src="img/player1.png" alt="player1" class="player player1" draggable="true">
+	<img src="img/player2.png" alt="player2" class="player player2" draggable="true">
+	<img src="img/player3.png" alt="player3" class="player player3" draggable="true">
+	<img src="img/player4.png" alt="player4" class="player player4" draggable="true">
+
+	<script type="text/javascript">
+
+		var players = document.getElementsByClassName('player');
+
+		var offsetX, offsetY;
+
+		[].forEach.call(players, function (player, index, all)
+		{
+			player.addEventListener('dragstart', function (e)
+			{
+				offsetX = e.offsetX;
+				offsetY = e.offsetY;
+			});
+
+			player.addEventListener('dragend', function (e)
+			{
+				console.log(e);
+				e.target.style.left = e.x - offsetX + "px";
+				e.target.style.top = e.y - offsetY + "px";
+			});
+		});
+
+	</script>
+
+</body>
+</html>
